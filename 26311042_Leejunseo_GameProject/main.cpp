@@ -1,21 +1,20 @@
+// include the 2d game header file
 #include "glc2d.h"
 #include <stdio.h>
+#include "CApplication.h"
+
+CApplication g_app;
 
 int main()
 {
-    // SDK 초기화
-    g2_InitSdk();
+	// SDK 초기화
+	g_app.Init();	
 
-    printf("Starting ...\n\n");
+	// 실행
+	g2_Run();
 
-    // 윈도우 생성
-    g2_CreateWin(100, 100, 1024, 600, "My First Game Window");
+	// 윈도우 해제
+	g_app.Destroy();
 
-    // 실행
-    g2_Run();
-
-    // 윈도우 해제
-    g2_DestroyWin();
-
-    return 0;
+	return 0;
 }
