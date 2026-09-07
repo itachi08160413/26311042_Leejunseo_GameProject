@@ -10,7 +10,7 @@ int main()
 	// SDK 초기화
 	g_app.Init();	
 
-	// 실행
+	// 실행	
 	g2_Run();
 
 	// 윈도우 해제

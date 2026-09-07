@@ -14,7 +14,7 @@ public:
 	int SdkInit();
 
 	POINT winPos{ 100, 100 };
-	SIZE winSize{ 800, 600 };
+	SIZE winSize{ 1200, 800 };
 	std::string m_winName = "Shadow Mini Game";
 
 	SceneGameBegin m_sceneBegin;
