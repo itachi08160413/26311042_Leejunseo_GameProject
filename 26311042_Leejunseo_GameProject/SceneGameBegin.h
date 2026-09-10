@@ -12,7 +12,7 @@ public:
 
 protected:
 	// game texture
-	int m_txMario = -1;
+	int m_txPlayer = -1;
 	int m_txBackground = -1;
 	VEC2 m_txBackgroundsize{ 0.4, 0.6 };
 };

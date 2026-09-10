@@ -3,6 +3,7 @@
 
 int SceneGameBegin::Init()
 {
+	m_txPlayer = g2_TextureLoad("Resource/Player.png");
     m_txBackground = g2_TextureLoad("Resource/GameStartBackgournd.png");
     return 0;
 }
@@ -10,6 +11,7 @@ int SceneGameBegin::Init()
 int SceneGameBegin::Render()
 {
     g2_Draw2D(m_txBackground, nullptr, nullptr, &m_txBackgroundsize);
+	g2_Draw2D(m_txPlayer, nullptr, nullptr);
     return 0;
 }
 
