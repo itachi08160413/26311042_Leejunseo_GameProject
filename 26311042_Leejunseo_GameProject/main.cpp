@@ -1,19 +1,25 @@
 // include the 2d game header file
 #include "glc2d.h"
-#include <stdio.h>
+#include <cstring>
 #include "CApplication.h"
 
 CApplication g_app;
 
 int main()
 {
-	// SDK 초기화
+    // Resources are copied beside the executable when building.
+    char executable[MAX_PATH]{};
+    GetModuleFileNameA(nullptr, executable, MAX_PATH);
+    char* slash = strrchr(executable, '\\');
+    if (slash)
+    {
+        *slash = '\0';
+        SetCurrentDirectoryA(executable);
+    }
 	g_app.Init();	
 
-	// 실행	
 	g2_Run();
 
-	// 윈도우 해제
 	g_app.Destroy();
 
 	return 0;

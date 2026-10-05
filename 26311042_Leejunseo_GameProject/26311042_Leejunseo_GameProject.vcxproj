@@ -53,6 +53,9 @@
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(VisualStudioVersion)' &gt;= '18.0'">
+    <PlatformToolset>v145</PlatformToolset>
+  </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
   <ImportGroup Label="ExtensionSettings">
   </ImportGroup>
@@ -136,10 +139,17 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CApplication.h" />
+    <ClInclude Include="GameRules.h" />
     <ClInclude Include="SceneGameBegin.h" />
     <ClInclude Include="SceneGamePlay.h" />
     <ClInclude Include="SceneGameResult.h" />
   </ItemGroup>
+  <ItemGroup>
+    <GameResource Include="rsc\**\*" />
+  </ItemGroup>
+  <Target Name="CopyGameResources" AfterTargets="Build">
+    <Copy SourceFiles="@(GameResource)" DestinationFiles="@(GameResource->'$(OutDir)rsc\%(RecursiveDir)%(Filename)%(Extension)')" SkipUnchangedFiles="true" />
+  </Target>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
     <Import Project="packages\Microsoft.DXSDK.D3DX.9.29.952.8\build\native\Microsoft.DXSDK.D3DX.targets" Condition="Exists('packages\Microsoft.DXSDK.D3DX.9.29.952.8\build\native\Microsoft.DXSDK.D3DX.targets')" />

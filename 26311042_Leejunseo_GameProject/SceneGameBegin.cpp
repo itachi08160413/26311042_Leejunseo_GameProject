@@ -1,26 +1,13 @@
-#include "glc2d.h"
-#include "SceneGameBegin.h"
+#include "CApplication.h"
 
-int SceneGameBegin::Init()
+void SceneGameBegin::Render()
 {
-	m_txPlayer = g2_TextureLoad("Resource/Player.png");
-    m_txBackground = g2_TextureLoad("Resource/GameStartBackgournd.png");
-    return 0;
+    g_app.DrawImage(TitleImage, 0, 0, 1280, 720);
+    g2_FontDrawText(g_app.m_largeFont, { 340, 575, 1100, 650 }, 0xFFDBFF89, "SPACE TO START");
+    g2_FontDrawText(g_app.m_font, { 300, 650, 1200, 705 }, 0xFFFFFFFF, "Press the matching A / S / D / F key!   ESC: Exit");
 }
 
-int SceneGameBegin::Render()
+void SceneGameBegin::Update()
 {
-    g2_Draw2D(m_txBackground, nullptr, nullptr, &m_txBackgroundsize);
-	g2_Draw2D(m_txPlayer, nullptr, nullptr);
-    return 0;
-}
-
-int SceneGameBegin::Update()
-{
-    return 0;
-}
-
-int SceneGameBegin::Destroy()
-{
-    return 0;	
+    if (g_app.Pressed(VK_SPACE)) g_app.StartGame();
 }

@@ -41,6 +41,9 @@
     <ClInclude Include="CApplication.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
+    <ClInclude Include="GameRules.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
     <ClInclude Include="SceneGameBegin.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
